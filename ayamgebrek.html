@@ -1,0 +1,787 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ayam Geprek Mantap</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #fff8ef;
+            color: #333;
+        }
+
+        /* ================= NAVBAR ================= */
+
+        nav {
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: white;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #e63946;
+        }
+
+        .logo span {
+            color: #222;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #e63946;
+        }
+
+        /* ================= HERO ================= */
+
+        .hero {
+            min-height: 90vh;
+            padding: 70px 8%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 50px;
+
+            background: linear-gradient(
+                135deg,
+                #fff0d5,
+                #ffd6a5
+            );
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 60px;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-text h1 span {
+            color: #e63946;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 25px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #e63946;
+            color: white;
+
+            text-decoration: none;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #c92735;
+            transform: translateY(-3px);
+        }
+
+        .hero-image {
+            width: 420px;
+            height: 420px;
+
+            border-radius: 50%;
+
+            background: #e63946;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 180px;
+
+            box-shadow:
+                0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        /* ================= SECTION ================= */
+
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #777;
+        }
+
+        /* ================= MENU ================= */
+
+        .menu-container {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-image {
+            height: 210px;
+
+            background: #ffd6a5;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 100px;
+        }
+
+        .card-content {
+            padding: 25px;
+        }
+
+        .card-content h3 {
+            font-size: 23px;
+            margin-bottom: 10px;
+        }
+
+        .card-content p {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .price {
+            font-size: 21px;
+            font-weight: bold;
+            color: #e63946;
+
+            margin-bottom: 15px;
+        }
+
+        .order-btn {
+            width: 100%;
+        }
+
+        /* ================= TENTANG ================= */
+
+        .about {
+            background: #252525;
+            color: white;
+
+            display: flex;
+            align-items: center;
+
+            gap: 60px;
+        }
+
+        .about-image {
+            min-width: 280px;
+            height: 280px;
+
+            background: #e63946;
+
+            border-radius: 30px;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 120px;
+        }
+
+        .about-text h2 {
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .about-text p {
+            color: #ddd;
+
+            line-height: 1.8;
+            font-size: 17px;
+        }
+
+        /* ================= KONTAK ================= */
+
+        .contact-container {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 30px;
+        }
+
+        .contact-info,
+        form {
+            background: white;
+
+            padding: 30px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.08);
+        }
+
+        .contact-info h3 {
+            font-size: 25px;
+            margin-bottom: 20px;
+        }
+
+        .contact-info p {
+            margin: 15px 0;
+            line-height: 1.6;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+
+            padding: 14px;
+
+            margin-bottom: 15px;
+
+            border: 1px solid #ddd;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus {
+            border-color: #e63946;
+        }
+
+        textarea {
+            height: 130px;
+            resize: none;
+        }
+
+        form .btn {
+            width: 100%;
+        }
+
+        /* ================= FOOTER ================= */
+
+        footer {
+            background: #151515;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 25px;
+        }
+
+        footer span {
+            color: #e63946;
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 900px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 45px;
+            }
+
+            .hero-image {
+                width: 300px;
+                height: 300px;
+                font-size: 120px;
+            }
+
+            .menu-container {
+                grid-template-columns: 1fr;
+            }
+
+            .about {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            section {
+                padding: 60px 5%;
+            }
+
+            .about-image {
+                min-width: 220px;
+                width: 220px;
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+
+        <div class="logo">
+            Geprek<span>Mantap</span> 🌶️
+        </div>
+
+        <ul>
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#menu">Menu</a>
+            </li>
+
+            <li>
+                <a href="#tentang">Tentang</a>
+            </li>
+
+            <li>
+                <a href="#kontak">Kontak</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero" id="home">
+
+        <div class="hero-text">
+
+            <h1>
+                Ayam Geprek
+                <span>Pedas & Mantap!</span>
+            </h1>
+
+            <p>
+                Nikmati ayam geprek crispy dengan sambal
+                khas yang pedas, gurih, dan bikin ketagihan.
+                Cocok untuk makan siang maupun makan malam!
+            </p>
+
+            <a href="#menu" class="btn">
+                Lihat Menu 🍗
+            </a>
+
+        </div>
+
+
+        <div class="hero-image">
+            🍗
+        </div>
+
+    </section>
+
+
+    <!-- ================= MENU ================= -->
+
+    <section id="menu">
+
+        <div class="section-title">
+
+            <h2>
+                Menu Kami 🍗
+            </h2>
+
+            <p>
+                Pilih menu favoritmu
+            </p>
+
+        </div>
+
+
+        <div class="menu-container">
+
+
+            <!-- MENU 1 -->
+
+            <div class="card">
+
+                <div class="food-image">
+                    🍗
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Geprek Original
+                    </h3>
+
+                    <p>
+                        Ayam crispy dengan nasi hangat
+                        dan sambal geprek khas.
+                    </p>
+
+                    <div class="price">
+                        Rp15.000
+                    </div>
+
+                    <button
+                        class="btn order-btn"
+                        onclick="pesan('Geprek Original')">
+
+                        Pesan Sekarang
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU 2 -->
+
+            <div class="card">
+
+                <div class="food-image">
+                    🌶️🍗
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Geprek Pedas
+                    </h3>
+
+                    <p>
+                        Ayam crispy dengan sambal
+                        ekstra pedas untuk pecinta cabai.
+                    </p>
+
+                    <div class="price">
+                        Rp18.000
+                    </div>
+
+                    <button
+                        class="btn order-btn"
+                        onclick="pesan('Geprek Pedas')">
+
+                        Pesan Sekarang
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- MENU 3 -->
+
+            <div class="card">
+
+                <div class="food-image">
+                    🧀🍗
+                </div>
+
+                <div class="card-content">
+
+                    <h3>
+                        Geprek Keju
+                    </h3>
+
+                    <p>
+                        Ayam geprek crispy dengan
+                        topping keju yang creamy.
+                    </p>
+
+                    <div class="price">
+                        Rp20.000
+                    </div>
+
+                    <button
+                        class="btn order-btn"
+                        onclick="pesan('Geprek Keju')">
+
+                        Pesan Sekarang
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= TENTANG ================= -->
+
+    <section class="about" id="tentang">
+
+        <div class="about-image">
+            🍗
+        </div>
+
+
+        <div class="about-text">
+
+            <h2>
+                Tentang Kami
+            </h2>
+
+            <p>
+                Geprek Mantap adalah tempat makan ayam
+                geprek dengan cita rasa khas Indonesia.
+                Kami menggunakan ayam segar dan sambal
+                yang dibuat setiap hari.
+            </p>
+
+            <br>
+
+            <p>
+                Mulai dari level pedas biasa sampai
+                super pedas, semuanya bisa kamu pilih
+                sesuai selera!
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= KONTAK ================= -->
+
+    <section id="kontak">
+
+        <div class="section-title">
+
+            <h2>
+                Hubungi Kami 📞
+            </h2>
+
+            <p>
+                Silakan hubungi kami untuk pemesanan.
+            </p>
+
+        </div>
+
+
+        <div class="contact-container">
+
+
+            <!-- INFORMASI -->
+
+            <div class="contact-info">
+
+                <h3>
+                    Informasi
+                </h3>
+
+                <p>
+                    📍 Jl. Contoh No. 123
+                </p>
+
+                <p>
+                    📞 0812-3456-7890
+                </p>
+
+                <p>
+                    📧 info@geprekmantap.com
+                </p>
+
+                <p>
+                    🕐 Senin - Minggu
+                    <br>
+                    10.00 - 22.00
+                </p>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <form
+                onsubmit="kirimPesan(event)">
+
+                <input
+                    type="text"
+                    id="nama"
+                    placeholder="Nama kamu"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Email kamu"
+                    required
+                >
+
+                <textarea
+                    id="pesan"
+                    placeholder="Tulis pesan..."
+                    required>
+                </textarea>
+
+                <button
+                    type="submit"
+                    class="btn">
+
+                    Kirim Pesan
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <span>Geprek Mantap</span>.
+            Semua Hak Dilindungi.
+        </p>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        function pesan(menu) {
+
+            alert(
+                "Kamu memilih: " +
+                menu +
+                "\n\nTerima kasih sudah memesan! 🍗🌶️"
+            );
+
+        }
+
+
+        function kirimPesan(event) {
+
+            event.preventDefault();
+
+            const nama =
+                document.getElementById("nama").value;
+
+            alert(
+                "Terima kasih, " +
+                nama +
+                "! Pesan kamu berhasil dikirim. 😊"
+            );
+
+            event.target.reset();
+
+        }
+
+    </script>
+
+</body>
+</html>
